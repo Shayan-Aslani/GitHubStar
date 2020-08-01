@@ -1,7 +1,8 @@
-package com.shayanaslani.githubstar
+package com.shayanaslani.githubstar.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.shayanaslani.githubstar.R
 
 class MainActivity : AppCompatActivity() {
 
