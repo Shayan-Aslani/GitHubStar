@@ -1,3 +1,3 @@
 package com.shayanaslani.githubstar.model
 
-class GitHubRepo (id : Int , name:String , htmlUrl:String , description:String , languagee:String , starCount:Int){}
+class GitHubRepo (val id : Int, val name:String, val htmlUrl:String, val description:String, val language:String, val stargazersCount:Int){}

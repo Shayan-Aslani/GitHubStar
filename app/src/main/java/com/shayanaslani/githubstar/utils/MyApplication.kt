@@ -2,7 +2,7 @@ package com.shayanaslani.githubstar.utils
 
 import android.app.Application
 import com.shayanaslani.githubstar.component.AppComponent
-import com.shayanaslani.githubstar.DaggerAppComponent
+import com.shayanaslani.githubstar.component.DaggerAppComponent
 import com.shayanaslani.githubstar.modules.AppModule
 import com.shayanaslani.githubstar.modules.RepositoryModule
 import com.shayanaslani.githubstar.modules.RetrofitModule
