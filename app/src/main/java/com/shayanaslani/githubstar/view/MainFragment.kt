@@ -21,10 +21,10 @@ import javax.inject.Inject
 class MainFragment : Fragment() {
 
     @Inject
-    lateinit var mViewModel: MainViewModel
+    lateinit var viewModel: MainViewModel
     @Inject
-    lateinit var mAdapter: GitHubRepoAdapter
-    lateinit var mBinding: MainFragmentBinding
+    lateinit var gitHubRepoAdapter: GitHubRepoAdapter
+    lateinit var binding: MainFragmentBinding
 
     companion object {
         fun newInstance() = MainFragment()
@@ -39,30 +39,30 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        mBinding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
 
         initRecyclerView()
         setListeners()
         setObservers()
 
-        return mBinding.root
+        return binding.root
     }
 
     private fun setObservers() {
-        mViewModel.getReposLiveData()
+        viewModel.starredRepo
             .observe(viewLifecycleOwner, Observer<List<GitHubRepo>> { list: List<GitHubRepo> ->
-                mAdapter.setRepoList(list)
+                gitHubRepoAdapter.setRepoList(list)
             })
     }
 
     private fun setListeners() {
-        mBinding.buttonSearch.setOnClickListener({
-            mViewModel.loadStarredRepos(mBinding.editTextUsername.text.toString())
-        })
+        binding.buttonSearch.setOnClickListener {
+            viewModel.loadStarredRepos(binding.editTextUsername.text.toString())
+        }
     }
 
     fun initRecyclerView() {
-        mBinding.recyclerViewRepos.layoutManager = LinearLayoutManager(context)
-        mBinding.recyclerViewRepos.adapter = mAdapter
+        binding.recyclerViewRepos.layoutManager = LinearLayoutManager(context)
+        binding.recyclerViewRepos.adapter = gitHubRepoAdapter
     }
 }

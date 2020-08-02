@@ -31,22 +31,20 @@ class GitHubRepoAdapter @Inject constructor() :
         notifyDataSetChanged()
     }
 
-    override fun getItemCount(): Int {
-        return repoList.size
-    }
+    override fun getItemCount() = repoList.size
 
     override fun onBindViewHolder(holder: GitHubRepoHolder, position: Int) {
         holder.bind(repoList.get(position))
     }
 
     class GitHubRepoHolder(
-        val mBinding: ItemGithubRepoBinding
-    ) : RecyclerView.ViewHolder(mBinding.root) {
+        val binding: ItemGithubRepoBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(gitHubRepo: GitHubRepo) {
-            mBinding.textRepoName.text = gitHubRepo.name
-            mBinding.textRepoDescription.text = gitHubRepo.description
-            mBinding.textLanguage.text = """Language : ${gitHubRepo.language}"""
-            mBinding.textStars.text = """Stars : ${gitHubRepo.stargazersCount}"""
+            binding.textRepoName.text = gitHubRepo.name
+            binding.textRepoDescription.text = gitHubRepo.description
+            binding.textLanguage.text = """Language : ${gitHubRepo.language}"""
+            binding.textStars.text = """Stars : ${gitHubRepo.stargazersCount}"""
         }
     }
 }

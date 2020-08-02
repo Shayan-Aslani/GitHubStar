@@ -7,10 +7,9 @@ import com.shayanaslani.githubstar.modules.AppModule
 import com.shayanaslani.githubstar.modules.RepositoryModule
 import com.shayanaslani.githubstar.modules.RetrofitModule
 
-class MyApplication : Application(){
+class MyApplication : Application() {
 
-
-    companion object{
+    companion object {
         private var component: AppComponent? = null
         fun getComponent(): AppComponent? {
             return component
